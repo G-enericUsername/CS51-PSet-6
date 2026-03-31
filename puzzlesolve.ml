@@ -108,15 +108,15 @@ module MakePuzzleSolver
 
       let solve () : move list * state list =
          let module Collection = MakeCollection (struct type t = state * move list end) in
-         let rec search (col : Collection.collection) (visited : Set.set) : move list * state list =
+         let rec search (col : Collection.collection) (visited : state list) : move list * state list =
             if Collection.is_empty col then raise CantReachGoal
             else let ((state, moves), col') = Collection.take col in
-               if Puzzle.is_goal state then (List.rev moves, Set.elements visited)
-               else if Set.member visited state then search col' visited
+               if Puzzle.is_goal state then (List.rev moves, visited)
+               else if List.mem state visited then search col' visited
                else let neighbors = Puzzle.neighbors state in
                   let col'' = List.fold_left (fun c (s, m) -> Collection.add (s, m :: moves) c) col' neighbors in
-                     search col'' (Set.insert visited state)
-         in search (Collection.add (Puzzle.initial_state, []) Collection.empty) Set.empty
+                     search col'' (state :: visited)
+         in search (Collection.add (Puzzle.initial_state, []) Collection.empty) []
 
       let draw states moves : unit = Puzzle.draw states moves
       let print_state state : unit = Puzzle.print_state state
