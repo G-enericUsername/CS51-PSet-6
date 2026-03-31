@@ -1,0 +1,23 @@
+Upon running ./experiments.byte, the data I got is as follows:
+
+Tile Puzzle Experiment
+DFS time: 0.093740s
+BFS time: 0.010060s
+Fast BFS (two-stack queue) time: 0.007354s
+
+Maze Puzzle Experiment
+DFS time: 0.000026s
+BFS time: 0.000061s
+Fast BFS (two-stack queue) time: 0.000054s
+
+I've discovered that for the Tile Puzzle, of the two default search algorithms, it favored Breadth-First Search (BFS), with a
+completion difference of about 0.08s. I expected BFS to be able to complete the experiment faster than DFS as BFS finds the
+shortest path and avoids unnecessary exploration. The Fast BFS algorithm completed the experiment with a nominally better result
+than the standard BFS (a time of about 0.003s quicker). I expected this difference to be greater, however, if completing
+even more tests at once, this difference would compound considerably.
+
+Interestingly, for the Maze Puzzle, the Depth-First Search (DFS) seemed to be the favorite of the two default algorithms, as it
+completed the experiment in a third of the time as it's BFS counterpart (~0.000035s faster). This puzzle's bias towards DFS is
+even more apparant when the default DFS algorithm completed the experiment in about half the time the Fast BFS algorithm did.
+(~0.000028s faster). I was shocked to see this, though there might be some bias in the experimentation here. I would expect
+the Fast BFS to perform better for lor larger mazes than the ones used in the experimentation. 

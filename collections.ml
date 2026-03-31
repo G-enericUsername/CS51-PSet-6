@@ -194,8 +194,7 @@ complete. (If you worked with a partner, we're asking for how much time
 each of you (on average) spent on the problem set, not in total.)
 ......................................................................*)
 
-let minutes_spent_on_pset () : int =
-  failwith "time estimate not provided" ;;
+let minutes_spent_on_pset () : int = 200 ;;
 
 (*......................................................................
 It's worth reflecting on the work you did on this problem set. Where
@@ -207,4 +206,10 @@ below.
 ......................................................................*)
 
 let reflection () : string =
-  "...your reflections here..." ;;
+  "I really liked this problem set because it solves real-world problems. I also
+  liked being able to experiment with the algorithms to determine which one performs
+  better first hand. I don't think I would do anything in retrospect to complete the
+  assignment in less time. The biggest problem I had was getting over the conceptual
+  barrier required to understand and use the modules that were provided. It just took
+  a lot of time and rereading to be able to figure out how to use the pieces together
+  to create the solve function." ;;
