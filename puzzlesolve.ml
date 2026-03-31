@@ -43,6 +43,8 @@ convenience. As examples of puzzle descriptions, we provide `mazes.pl`
 and `tiles.pl`.
  *)
 
+
+open CS51Utils ;;
 open Puzzledescription ;;
 
 (* PUZZLESOLVER -- a module signature that provides for solving puzzles
